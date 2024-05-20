@@ -1,0 +1,55 @@
+.results-list {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for better aesthetics */
+  border-radius: 10px;
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: auto; /* Changed to auto to show scrollbar only when necessary */
+  padding: 1rem; /* Added padding for better spacing */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+}
+
+.results-list::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.results-list::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 10px;
+}
+
+.results-list::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.results-list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Hover effect for scrollbar */
+}
+
+.results-list .result-item {
+  padding: 0.5rem; /* Padding for each result item */
+  border-bottom: 1px solid #eee; /* Divider between items */
+  transition: background-color 0.2s ease; /* Smooth transition for hover effect */
+}
+
+.results-list .result-item:hover {
+  background-color: #f9f9f9; /* Highlight on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .results-list {
+    max-height: none; /* Remove max-height for smaller screens */
+    overflow-y: visible; /* Show all items without scrollbar */
+    padding: 0.5rem; /* Reduce padding for smaller screens */
+    box-shadow: none; /* Remove shadow for smaller screens */
+  }
+
+  .results-list .result-item {
+    border-bottom: none; /* Remove divider for smaller screens */
+  }
+}
