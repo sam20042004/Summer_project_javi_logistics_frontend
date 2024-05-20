@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalStateContext } from "../GlobalStateContext/GlobalStateContext";
 
 export const Phone_verify = () => {
+  const apiURL = process.env.REACT_APP_API_URL;
   const { isAuthenticated, setIsAuthenticated, user_details, setUserDetails, existing_cart, setExistingCart, yesterday_cart, setYesterdaycart } = useContext(GlobalStateContext);
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ export const Phone_verify = () => {
   const checkotpvalid = () => /^\d{6}$/.test(otp);
 
   const fetchOTP = async (ph) => {
-    const url = `https://summer-project-backend.onrender.com/api/auth/genotp?mobile_number=${ph}`;
+    const url = `${apiURL}/api/auth/genotp?mobile_number=${ph}`;
     try {
       const res = await fetch(url, { method: 'POST' });
       const data = await res.json();
@@ -32,7 +33,7 @@ export const Phone_verify = () => {
   };
 
   const verifyOTPapi = async (ph, otp) => {
-    const url = "https://summer-project-backend.onrender.com/api/auth/verifyotp";
+    const url = `${apiURL}/api/auth/verifyotp`;
     const body = JSON.stringify({ mobile_number: ph, otp: otp });
 
     try {
@@ -87,7 +88,7 @@ export const Phone_verify = () => {
   }, [user_details]);
 
   const fetchCartData = async (user_id) => {
-    const url = `https://summer-project-backend.onrender.com/api/auth/getcart/${user_id}`;
+    const url = `${apiURL}/api/auth/getcart/${user_id}`;
     try {
       const res = await fetch(url);
       const data = await res.json();
@@ -110,7 +111,7 @@ export const Phone_verify = () => {
       <img src={logo} alt="Company's logo" className='company-logo' />
 
       <div className='phone-number'>
-        <label className='label'>Please Enter your phone Number:</label>
+        <label className='label'>Please Enter your phone Number: testing 120</label>
         <div className="phone-input">
           <div className="country-code">+91</div>
           <input

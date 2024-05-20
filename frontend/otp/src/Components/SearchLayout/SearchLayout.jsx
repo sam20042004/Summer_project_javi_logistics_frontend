@@ -7,6 +7,7 @@ import { GlobalStateContext } from '../GlobalStateContext/GlobalStateContext';
 import CartDisplay from '../CartDisplay/CartDisplay';
 
 function SearchLayout() {
+  const apiURL = process.env.REACT_APP_API_URL;
   const { isAuthenticated, existing_cart, yesterday_cart } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
@@ -20,9 +21,9 @@ function SearchLayout() {
 
   useEffect(() => {
     const fetchProductData = async () => {
-      const apiURL = "https://summer-project-backend.onrender.com/api/auth/med_details";
+      const APIURL = `${apiURL}/api/auth/med_details`;
       try {
-        const response = await fetch(apiURL);
+        const response = await fetch(APIURL);
         const data = await response.json();
         setProductData(data);
       } catch (error) {

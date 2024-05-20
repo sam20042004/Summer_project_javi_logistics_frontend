@@ -4,13 +4,14 @@ import { FaSearch } from "react-icons/fa"
 import './Searchbar.css'
 
 export const Searchbar = ({setResults}) =>{
+  const apiURL = process.env.REACT_APP_API_URL;
   const [input, setInput] = useState("")
 
   const fetchData = async (value) => {
 
-    const apiURL = "https://summer-project-backend.onrender.com/api/auth/med_details";
+    const APIURL = `${apiURL}/api/auth/med_details`;
     try{
-      const response = await fetch(apiURL);
+      const response = await fetch(APIURL);
       const data = await response.json();
       // console.log(data);
       // console.log(value);

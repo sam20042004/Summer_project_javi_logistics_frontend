@@ -3,6 +3,7 @@ import "./SearchResult.css"
 import { GlobalStateContext } from "../GlobalStateContext/GlobalStateContext";
 
 export const SearchResult = ({ result }) => {
+  const apiURL = process.env.REACT_APP_API_URL;
   const { isAuthenticated, setIsAuthenticated, user_details, setUserDetails, existing_cart, setExistingCart, yesterday_cart, setYesterdaycart } = useContext(GlobalStateContext);
   const [needchange, setNeedchange] = useState(false);
 
@@ -66,7 +67,7 @@ export const SearchResult = ({ result }) => {
 
   const postCartData = async (data) => {
     try {
-      const response = await fetch('https://summer-project-backend.onrender.com/api/auth/postcart', {
+      const response = await fetch(`${apiURL}/api/auth/postcart`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
