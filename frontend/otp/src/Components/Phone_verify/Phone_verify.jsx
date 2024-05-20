@@ -111,7 +111,7 @@ export const Phone_verify = () => {
       <img src={logo} alt="Company's logo" className='company-logo' />
 
       <div className='phone-number'>
-        <label className='label'>Please Enter your phone Number: testing 1278</label>
+        <label className='label'>Please Enter your phone Number:</label>
         <div className="phone-input">
           <div className="country-code">+91</div>
           <input
